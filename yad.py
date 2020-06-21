@@ -13,17 +13,17 @@ def get_yad_client(yad_id: str, yad_password: str, yad_token: Optional[str]) -> 
     return client
 
 
-def recursive_upload(yad_client: yadisk.YaDisk, source: str, dest: str):
-    for root, dirs, files in os.walk(source):
-        p = root.split(source)[1].strip(os.path.sep)
-        dir_path = posixpath.join(dest, p)
+def upload_dir(yad_client: yadisk.YaDisk, source_dir: str, dest_dir: str):
+    for root, dirs, files in os.walk(source_dir):
+        p = root.split(source_dir)[1].strip(os.path.sep)
+        dir_path = posixpath.join(dest_dir, p)
         if yad_client.exists(dir_path):
             yad_client.remove(dir_path)
         yad_client.mkdir(dir_path)
         for file in files:
             file_path = posixpath.join(dir_path, file)
             p_sys = p.replace("/", os.path.sep)
-            in_path = os.path.join(source, p_sys, file)
+            in_path = os.path.join(source_dir, p_sys, file)
             print(f"Uploading {in_path} to {file_path}")
             yad_client.upload(in_path, file_path)
             print("Done")
