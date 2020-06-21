@@ -1,7 +1,4 @@
-import loggers
-
-import arguments
-import yad
+from yad_uploader import loggers, yad, arguments
 
 
 def run():

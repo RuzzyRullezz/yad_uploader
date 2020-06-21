@@ -5,7 +5,7 @@ from typing import List
 
 import telegram_log.handler
 
-from arguments import Arguments
+from yad_uploader.arguments import Arguments
 
 
 def configure_logger(logger: logging.Logger, tg_token: str, tg_chat_ids: List[str]):

@@ -1,11 +1,12 @@
 from setuptools import setup, find_packages
 
-from __init__ import __version__
+import yad_uploader
+
 
 setup(
     name='yad_uploader',
-    version=__version__,
-    author='Ruzzy Rullezz',
+    version=yad_uploader.__version__,
+    author='ruzzy',
     author_email='ruslan@lemimi.ru',
     packages=find_packages(),
     package_dir={'yad_uploader': 'yad_uploader'},
